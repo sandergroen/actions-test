@@ -7,7 +7,7 @@ default: &default
 
 test:
   <<: *default
-  database: <%= ENV.fetch('POSTGRES_DATABASE', 'postgres') %>
+  database: <%= ENV.fetch('POSTGRES_DATABASE', 'actions-test') %>
   host:     <%= ENV.fetch('POSTGRES_HOST',  'localhost') %>
   username: <%= ENV.fetch('POSTGRES_USER', nil) %>
   password: <%= ENV.fetch('POSTGRES_PASSWORD', nil) %>
