@@ -1,0 +1,17 @@
+{
+  "name": "actions-test",
+  "version": "1.0.0",
+  "repository": "git@github.com:sandergroen/actions-test.git",
+  "license": "UNLICENSED",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
