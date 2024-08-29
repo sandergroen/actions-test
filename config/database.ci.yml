@@ -7,8 +7,8 @@ default: &default
 
 test:
   <<: *default
-  database: <%= ENV.fetch('PG_DATABASE', 'postgres') %>
-  host:     <%= ENV.fetch('PG_HOST',  'localhost') %>
-  username: <%= ENV.fetch('PG_USER', nil) %>
-  password: <%= ENV.fetch('PG_PASSWORD', nil) %>
-  port:     <%= ENV.fetch('PG_PORT', 5432) %>
+  database: <%= ENV.fetch('POSTGRES_DATABASE', 'postgres') %>
+  host:     <%= ENV.fetch('POSTGRES_HOST',  'localhost') %>
+  username: <%= ENV.fetch('POSTGRES_USER', nil) %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD', nil) %>
+  port:     <%= ENV.fetch('POSTGRES_PORT', 5432) %>
