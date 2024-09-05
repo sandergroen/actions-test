@@ -1,11 +1,10 @@
 default: &default
   adapter: mysql2
+  host: <%= ENV['DATABASE_ENDPOINT'] %>
   encoding: utf8
   pool: 5
-  username: root
-  password:
 test:
   <<: *default
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
-  database: wmk_test
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>

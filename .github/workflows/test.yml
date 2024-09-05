@@ -12,9 +12,9 @@ jobs:
 
     services:
       mysql:
-        image: mysql
+        image: mysql:8.0
         env:
-          MYSQL_DATABASE: root
+          MYSQL_DATABASE: actions_test
           MYSQL_ROOT_PASSWORD: root
         ports:
           - 3306:3306
@@ -44,6 +44,10 @@ jobs:
         run: cp config/database.ci.yml config/database.yml
       - name: Run tests
         env:
+          DATABASE_NAME: actions_test
+          DATABASE_USERNAME: root
+          DATABASE_PASSWORD: root
+          DATABASE_ENDPOINT: mysql
           RAILS_ENV: test
         run: bin/rails db:setup spec
 
