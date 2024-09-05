@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: ankane/setup-mysql@v1
+        with:
+          mysql-version: 8.0
       - uses: browser-actions/setup-chrome@v1
       - run: chrome --version
       - name: Install packages
@@ -37,8 +40,8 @@ jobs:
         env:
           DATABASE_NAME: actions_test
           DATABASE_USERNAME: root
-          DATABASE_PASSWORD: root
-          DATABASE_ENDPOINT: mysql
+          DATABASE_PASSWORD: ""
+          DATABASE_ENDPOINT: 127.0.0.1
           RAILS_ENV: test
         run: bin/rails db:setup spec
 
