@@ -1,14 +1,13 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
 test:
   <<: *default
-  database: <%= ENV.fetch('POSTGRES_DATABASE', 'actions-test') %>
-  host:     <%= ENV.fetch('POSTGRES_HOST',  'localhost') %>
-  username: <%= ENV.fetch('POSTGRES_USER', nil) %>
-  password: <%= ENV.fetch('POSTGRES_PASSWORD', nil) %>
-  port:     <%= ENV.fetch('POSTGRES_PORT', 5432) %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  database: wmk_test
